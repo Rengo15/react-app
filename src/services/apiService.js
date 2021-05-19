@@ -25,6 +25,7 @@ const list = (path, callback) => {
 }
 
 const read = (path, id, callback) => {
+    
     axios.get(`${apiUrl}/${path}/${id}`, { headers })
     .then(response => callback(response.data))
     .catch(reason =>{

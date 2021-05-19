@@ -2,7 +2,7 @@ import logo from '../assets/images/logo.png';
 
 const styles ={
     image:{
-        width: '150px'
+        width: '400px'
     },
     title: {
         fontSize: '2em'

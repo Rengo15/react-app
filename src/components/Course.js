@@ -22,7 +22,7 @@ const Course = ({match, history}) => {
 
         setCourse({
             ...course,
-            [e.target.name]: [e.target.value]
+            [e.target.name]: e.target.value
         });
     }
 
@@ -37,7 +37,7 @@ const Course = ({match, history}) => {
                 console.log('There was error durning save data');
             })
         } else{
-            update('course', id, course, data => {
+            update('courses', id, course, data => {
                 if(data) return history.push('/courses');
                 console.log('There was error durning save data');
             })
