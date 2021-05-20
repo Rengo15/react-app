@@ -31,16 +31,31 @@ const Course = ({match, history}) => {
     }
 
     const save = () => {
-        if(id === '0') {
+        if(id === '0'){
+            if(course.name === ''){
+                alert('Course name is required');
+                return;
+            } else if(course.points === '' || course.points !== Number){
+                alert('Course points are required, and have to be a number!')
+                return;
+            }
             insert('courses', course, data => {
                 if(data) return history.push('/courses');
-                console.log('There was error durning save data');
-            })
-        } else{
+                console.log('There was error during saving the data')
+            });
+        }
+        else {
+            if(course.name === ''){
+                alert('Course name is required')
+                return;
+            }else if(course.points === '' || course.points !== Number){
+                alert('Course points are required, and have to be a number!')
+                return;
+            }
             update('courses', id, course, data => {
-                if(data) return history.push('/courses');
-                console.log('There was error durning save data');
-            })
+                if(data) return history.push('/students');
+                console.log('There was error during saving the data');
+            });
         }
 
         
