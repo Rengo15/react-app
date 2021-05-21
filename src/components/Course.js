@@ -35,7 +35,7 @@ const Course = ({match, history}) => {
             if(course.name === ''){
                 alert('Course name is required');
                 return;
-            } else if(course.points === '' || course.points !== Number){
+            } else if(course.points === ''){
                 alert('Course points are required, and have to be a number!')
                 return;
             }
@@ -48,12 +48,12 @@ const Course = ({match, history}) => {
             if(course.name === ''){
                 alert('Course name is required')
                 return;
-            }else if(course.points === '' || course.points !== Number){
+            }else if(course.points === ''){
                 alert('Course points are required, and have to be a number!')
                 return;
             }
             update('courses', id, course, data => {
-                if(data) return history.push('/students');
+                if(data) return history.push('/courses');
                 console.log('There was error during saving the data');
             });
         }
@@ -79,7 +79,7 @@ const Course = ({match, history}) => {
                 </div>
                 <div style={{margin:'12px 0'}}>
                     <label htmlFor='points' >Course points: </label>
-                    <input type='text'
+                    <input type='number'
                             name='points'
                             value={course.points}
                             onChange={changeHandler} />
